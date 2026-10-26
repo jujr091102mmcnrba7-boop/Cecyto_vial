@@ -1,8 +1,8 @@
 # CECyTO Vial
 
-Prototipo educativo para conocer faltas viales y practicar decisiones responsables en Villa Victoria. Incluye una interfaz adaptable, un cuestionario con calificación inmediata, una API local y un esquema relacional de referencia.
+Sistema educativo para conocer disposiciones de movilidad y seguridad vial del Bando Municipal de Villa Victoria 2026. Incluye una interfaz adaptable, un cuestionario con calificación inmediata, una API local y una base de datos SQLite conectada.
 
-> **Aviso:** las faltas y recomendaciones incluidas son datos didácticos de ejemplo, no una transcripción del reglamento ni asesoría legal. Las notas de sanción están pendientes de validación municipal y no muestran montos. Verifica con fuentes oficiales municipales la clasificación, obligaciones y sanciones vigentes antes de usar o publicar datos oficiales.
+> **Alcance legal:** el catálogo resume disposiciones del [Bando Municipal de Villa Victoria 2026](https://villavictoria.edomex.gob.mx/sites/villavictoria.edomex.gob.mx/files/files/acerca%20del%20ayuntamiento/Marco%20Juridico/BANDO%20MUNICIPAL%20VV26%20LIGERO.pdf), vigente desde el 5 de febrero de 2026 (artículo segundo transitorio). Cada ficha muestra el artículo de referencia. Las categorías de la interfaz solo organizan el aprendizaje: el Bando remite la aplicación de sanciones de movilidad a la Ley de Movilidad del Estado de México y su Reglamento (artículo 192, fracción XII), y la calificación cívica a la Ley y el Reglamento de Justicia Cívica (artículos 217–218). No se inventan multas ni grados generales de faltas. El contenido es educativo y no sustituye la consulta del texto oficial ni la orientación de la autoridad.
 
 ## Requisitos
 
@@ -26,10 +26,11 @@ Ejecuta `npm test` para validar la API, el cuestionario y las rutas principales.
 .
 ├── app.js                  # Interfaz y cuestionario
 ├── data/
-│   ├── faults.json         # Catálogo inicial de faltas educativas
+│   ├── faults.json         # Catálogo con referencias al Bando Municipal 2026
 │   └── questions.json      # Preguntas y respuestas para el servidor
+├── database.js             # Inicialización SQLite, carga y consultas
 ├── database/
-│   └── schema.sql          # Esquema relacional de referencia
+│   └── schema.sql          # Esquema relacional
 ├── index.html
 ├── server.js               # Servidor estático y API JSON
 ├── styles.css
@@ -39,7 +40,7 @@ Ejecuta `npm test` para validar la API, el cuestionario y las rutas principales.
 
 ## API local
 
-- `GET /api/faults` devuelve las faltas; admite `?category=Grave`.
+- `GET /api/faults` devuelve las disposiciones; admite `?category=Movilidad`.
 - `GET /api/questions` devuelve preguntas y opciones, sin exponer la respuesta correcta.
 - `POST /api/assessments` recibe `{"answers":[{"questionId":"q1","selectedIndex":0}]}` y devuelve el puntaje y la retroalimentación.
 
@@ -82,10 +83,13 @@ erDiagram
     TRAFFIC_FAULTS {
         string id PK
         int category_id FK
+        string icon
         string title
         string description
         string recommendation
         string sanction_note
+        string legal_reference
+        string source_url
     }
     QUIZ_QUESTIONS {
         string id PK
@@ -122,13 +126,13 @@ erDiagram
 │ En el camino, cada decisión cuenta.     Ilustración / camino │
 │ [Poner a prueba lo que sé] [Explorar reglamento]             │
 ├──────────────────────────────────────────────────────────────┤
-│ Aprende hoy protege mañana · 03 categorías · 08 preguntas    │
+│ Aprende hoy protege mañana · 04 categorías · 08 preguntas    │
 ├──────────────────────────────────────────────────────────────┤
 │ REGLAS CLARAS, CAMINOS SEGUROS                                │
-│ [Todas] [Leves] [Graves] [Gravísimas] [Administrativas]      │
+│ [Todas] [Movilidad] [Seguridad vial] [Alcoholímetro] [Cívica] │
 │ ┌──────────────┐ ┌──────────────┐ ┌──────────────┐           │
-│ │ Falta        │ │ Falta        │ │ Falta        │           │
-│ │ Sanción*     │ │ Sanción*     │ │ Sanción*     │           │
+│ │ Disposición  │ │ Disposición  │ │ Disposición  │           │
+│ │ Artículo     │ │ Artículo     │ │ Artículo     │           │
 │ │ Prevención   │ │ Prevención   │ │ Prevención   │           │
 │ └──────────────┘ └──────────────┘ └──────────────┘           │
 ├──────────────────────────────────────────────────────────────┤
@@ -138,12 +142,17 @@ erDiagram
 └──────────────────────────────────────────────────────────────┘
 ```
 
-`*` Nota de sanción pendiente de verificación con la autoridad municipal.
+### Fuente normativa consultada
+
+- **Bando Municipal de Villa Victoria 2026**, versión oficial alojada por el Ayuntamiento: [consultar PDF](https://villavictoria.edomex.gob.mx/sites/villavictoria.edomex.gob.mx/files/files/acerca%20del%20ayuntamiento/Marco%20Juridico/BANDO%20MUNICIPAL%20VV26%20LIGERO.pdf).
+- Artículo 192, fracción VI: estacionamiento que obstruye la circulación y medidas de retiro.
+- Artículo 192, fracción XII: atribuciones en movilidad, alcoholímetro y límites de alcohol.
+- Artículo 193, fracciones I y V: señalamientos, límites indicados, circulación y dispositivos de comunicación.
+- Artículos 217 y 218: disposiciones generales de infracciones y calificación por el Juzgado Cívico.
+- Artículo segundo transitorio: entrada en vigor el 5 de febrero de 2026.
+
+El Bando remite cuestiones concretas de movilidad a la Ley estatal y su Reglamento, y el procedimiento cívico a su propia Ley y Reglamento municipal. Este prototipo no reemplaza esos instrumentos ni asigna sanciones o montos que no aparecen en los artículos citados.
 
 ## Publicación del repositorio
 
-El proyecto debe publicarse en un repositorio remoto propio. No uses el repositorio de otro proyecto. Crea un repositorio vacío en tu cuenta de GitHub, copia su URL y configura `git remote add origin <URL>` desde la carpeta del proyecto; después publica la rama principal con `git push -u origin main`. El usuario necesita iniciar sesión y tener permiso de escritura en esa cuenta.
-
-## Repositorio remoto
-
-Para publicar este prototipo, crea un repositorio vacío en GitHub, GitLab o Bitbucket, inicializa Git en esta carpeta, agrega el remoto y sube la rama principal. No incluyas secretos ni resultados locales.
+Repositorio público: [jujr091102mmcnrba7-boop/Cecyto_vial](https://github.com/jujr091102mmcnrba7-boop/Cecyto_vial). La base SQLite y las evaluaciones locales se excluyen de Git.

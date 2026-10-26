@@ -10,8 +10,22 @@ function openDatabase(databasePath = DEFAULT_PATH) {
   const database = new DatabaseSync(databasePath);
   database.exec("PRAGMA foreign_keys = ON");
   database.exec(fs.readFileSync(path.join(ROOT, "database", "schema.sql"), "utf8"));
+  migrateFaultSourceColumns(database);
   seedDatabase(database);
   return database;
+}
+
+function migrateFaultSourceColumns(database) {
+  const columns = new Set(database.prepare("PRAGMA table_info(traffic_faults)").all().map((column) => column.name));
+  if (!columns.has("legal_reference")) {
+    database.exec("ALTER TABLE traffic_faults ADD COLUMN legal_reference TEXT NOT NULL DEFAULT ''");
+  }
+  if (!columns.has("source_url")) {
+    database.exec("ALTER TABLE traffic_faults ADD COLUMN source_url TEXT NOT NULL DEFAULT ''");
+  }
+  if (!columns.has("icon")) {
+    database.exec("ALTER TABLE traffic_faults ADD COLUMN icon TEXT NOT NULL DEFAULT ''");
+  }
 }
 
 function seedDatabase(database) {
@@ -26,14 +40,19 @@ function seedDatabase(database) {
 
     const categoryIds = new Map(database.prepare("SELECT id, name FROM fault_categories").all().map((row) => [row.name, row.id]));
     const insertFault = database.prepare(`
-      INSERT INTO traffic_faults (id, category_id, title, description, recommendation, sanction_note)
-      VALUES (?, ?, ?, ?, ?, ?)
+      INSERT INTO traffic_faults (
+        id, category_id, title, description, recommendation, sanction_note, legal_reference, source_url, icon
+      )
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
       ON CONFLICT(id) DO UPDATE SET
         category_id = excluded.category_id,
         title = excluded.title,
         description = excluded.description,
         recommendation = excluded.recommendation,
-        sanction_note = excluded.sanction_note
+        sanction_note = excluded.sanction_note,
+        legal_reference = excluded.legal_reference,
+        source_url = excluded.source_url,
+        icon = excluded.icon
     `);
     for (const fault of faults) {
       insertFault.run(
@@ -42,10 +61,12 @@ function seedDatabase(database) {
         fault.title,
         fault.description,
         fault.recommendation,
-        fault.sanctionNote
+        fault.sanctionNote,
+        fault.legalReference,
+        fault.sourceUrl,
+        fault.icon
       );
     }
-
     const insertQuestion = database.prepare(`
       INSERT INTO quiz_questions (id, fault_id, question, explanation)
       VALUES (?, ?, ?, ?)
@@ -67,6 +88,16 @@ function seedDatabase(database) {
         insertOption.run(question.id, index, option, Number(index === question.correctIndex));
       });
     }
+    const seededFaultIds = new Set(faults.map((fault) => fault.id));
+    const existingFaultIds = database.prepare("SELECT id FROM traffic_faults").all();
+    const deleteFault = database.prepare("DELETE FROM traffic_faults WHERE id = ?");
+    for (const { id } of existingFaultIds) {
+      if (!seededFaultIds.has(id)) deleteFault.run(id);
+    }
+    database.exec(`
+      DELETE FROM fault_categories
+      WHERE id NOT IN (SELECT DISTINCT category_id FROM traffic_faults)
+    `);
     database.exec("COMMIT");
   } catch (error) {
     database.exec("ROLLBACK");
@@ -78,7 +109,10 @@ function getFaults(database, category) {
   const sql = `
     SELECT traffic_faults.id, fault_categories.name AS category, traffic_faults.title,
       traffic_faults.description, traffic_faults.recommendation,
-      traffic_faults.sanction_note AS sanctionNote
+      traffic_faults.sanction_note AS sanctionNote,
+      traffic_faults.legal_reference AS legalReference,
+      traffic_faults.source_url AS sourceUrl,
+      traffic_faults.icon
     FROM traffic_faults
     JOIN fault_categories ON fault_categories.id = traffic_faults.category_id
     ${category ? "WHERE fault_categories.name = ?" : ""}

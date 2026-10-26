@@ -11,7 +11,10 @@ CREATE TABLE IF NOT EXISTS traffic_faults (
   title TEXT NOT NULL,
   description TEXT NOT NULL,
   recommendation TEXT NOT NULL,
-  sanction_note TEXT NOT NULL
+  sanction_note TEXT NOT NULL,
+  legal_reference TEXT NOT NULL DEFAULT '',
+  source_url TEXT NOT NULL DEFAULT '',
+  icon TEXT NOT NULL DEFAULT ''
 );
 
 CREATE TABLE IF NOT EXISTS quiz_questions (

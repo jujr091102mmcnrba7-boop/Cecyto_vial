@@ -9,10 +9,10 @@ let currentQuestion = 0;
 let selectedAnswers = [];
 
 const categoryClasses = {
-  Leve: "category-mild",
-  Grave: "category-serious",
-  Gravísima: "category-critical",
-  Administrativa: "category-admin"
+  Movilidad: "category-mobility",
+  "Seguridad vial": "category-safety",
+  Alcoholímetro: "category-alcohol",
+  "Justicia Cívica": "category-civic"
 };
 
 async function requestJson(url, options) {
@@ -36,6 +36,7 @@ function renderFaults(category = "Todas") {
       <h3>${escapeHtml(fault.title)}</h3>
       <p>${escapeHtml(fault.description)}</p>
       <p class="sanction-note">${escapeHtml(fault.sanctionNote)}</p>
+      <a class="legal-reference" href="${escapeHtml(fault.sourceUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(fault.legalReference)} <span aria-hidden="true">↗</span></a>
       <div class="prevention"><span aria-hidden="true">↗</span><span>${escapeHtml(fault.recommendation)}</span></div>
     </article>`).join("");
 }

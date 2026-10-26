@@ -1,66 +1,98 @@
 [
   {
     "id": "q1",
-    "faultId": "grave-cinturon",
-    "question": "¿Qué debes hacer antes de iniciar un viaje?",
-    "options": ["Colocarte el cinturón y revisar que las personas pasajeras también lo usen", "Usar el cinturón solo en carretera", "Confiar en que las bolsas de aire son suficientes"],
+    "faultId": "alcohol-automotores",
+    "question": "¿Qué límite de alcohol señala el Bando para conducir vehículos distintos de motocicletas?",
+    "options": [
+      "No conducir con una concentración superior a 0.25 mg/L en aire espirado o 0.05 g/dL en sangre",
+      "El Bando permite cualquier concentración si el trayecto es corto",
+      "El Bando fija el mismo límite que para motocicletas"
+    ],
     "correctIndex": 0,
-    "explanation": "El cinturón debe usarse en todos los trayectos y por todas las personas ocupantes."
+    "explanation": "El artículo 192, fracción XII, señala esos límites para vehículos distintos de motocicletas y remite las sanciones a la legislación estatal de movilidad."
   },
   {
     "id": "q2",
-    "faultId": "grave-celular",
-    "question": "Necesitas responder un mensaje mientras conduces. ¿Cuál es la opción segura?",
-    "options": ["Leerlo rápidamente en un semáforo", "Detenerte en un lugar seguro antes de usar el teléfono", "Pedir a quien conduce detrás que te avise si cambia el semáforo"],
+    "faultId": "seguridad-telefono",
+    "question": "¿Qué debes hacer para usar el teléfono si estás conduciendo?",
+    "options": [
+      "Leer mensajes solo cuando el camino esté despejado",
+      "Detenerte en un lugar permitido y seguro antes de usarlo",
+      "Sostenerlo con una mano y conducir despacio"
+    ],
     "correctIndex": 1,
-    "explanation": "La opción segura es estacionarte en un lugar permitido antes de manipular el teléfono."
+    "explanation": "El artículo 193, fracción V, prohíbe usar teléfonos celulares y otros dispositivos de comunicación mientras se conduce."
   },
   {
     "id": "q3",
-    "faultId": "gravísima-alcohol",
-    "question": "¿Qué debes hacer si consumiste bebidas alcohólicas?",
-    "options": ["Conducir despacio", "Esperar unos minutos y conducir", "No conducir y elegir una alternativa segura"],
-    "correctIndex": 2,
-    "explanation": "El alcohol afecta habilidades necesarias para conducir; elige otra forma de llegar."
+    "faultId": "alcohol-motocicletas",
+    "question": "¿Qué indica el Bando sobre los límites de alcohol para motocicletas?",
+    "options": [
+      "Establece un límite de 0.1 mg/L en aire espirado o 0.02 g/dL en sangre para los vehículos enumerados",
+      "No contempla motocicletas",
+      "Permite el límite general de cualquier vehículo sin distinción"
+    ],
+    "correctIndex": 0,
+    "explanation": "El artículo 192, fracción XII, señala límites específicos para motocicletas y otros vehículos enumerados, además de tolerancia cero para ciertos supuestos."
   },
   {
     "id": "q4",
-    "faultId": "leve-velocidad",
-    "question": "¿Cómo debes elegir la velocidad al conducir?",
-    "options": ["Respetar los señalamientos y adaptar la velocidad a las condiciones", "Seguir siempre la velocidad del vehículo de adelante", "Acelerar si el camino parece despejado"],
+    "faultId": "movilidad-senales-velocidad",
+    "question": "¿Qué obligaciones de circulación menciona el Bando?",
+    "options": [
+      "Respetar señalamientos, límites de velocidad indicados y sentido de circulación",
+      "Seguir siempre la velocidad del vehículo de adelante",
+      "Ignorar los señalamientos si la vía parece libre"
+    ],
     "correctIndex": 0,
-    "explanation": "Respeta el límite señalado y considera el tránsito, el clima y el estado del camino."
+    "explanation": "El artículo 193, fracción I, establece esas obligaciones para las personas conductoras."
   },
   {
     "id": "q5",
-    "faultId": "leve-estacionamiento",
-    "question": "¿Dónde es adecuado estacionar?",
-    "options": ["En una rampa si será solo un momento", "En un espacio permitido, sin bloquear accesos ni cruces", "Sobre la banqueta cuando no hay tráfico"],
-    "correctIndex": 1,
-    "explanation": "Estacionarse en espacios permitidos protege el paso de peatones y otros vehículos."
+    "faultId": "movilidad-estacionamiento",
+    "question": "¿Qué puede ocurrir si un vehículo obstruye la circulación y quien conduce se niega a retirarlo?",
+    "options": [
+      "El Bando contempla pedir su retiro con grúa y presentar el caso ante el Juzgado Cívico",
+      "No existe ninguna medida prevista",
+      "La persona puede dejarlo si activa las luces intermitentes"
+    ],
+    "correctIndex": 0,
+    "explanation": "El artículo 192, fracción VI, contempla el retiro del vehículo y su presentación ante el Juzgado Cívico en el supuesto descrito."
   },
   {
     "id": "q6",
-    "faultId": "administrativa-documentos",
-    "question": "¿Qué hábito ayuda a evitar problemas por documentación?",
-    "options": ["Revisar antes de salir que llevas documentos vigentes y requeridos", "Llevar una foto borrosa de cualquier documento", "Esperar a que una autoridad los solicite para revisarlos"],
+    "faultId": "justicia-calificacion",
+    "question": "Según el Bando, ¿quién califica las infracciones y sanciones cívicas?",
+    "options": [
+      "La persona titular del Juzgado Cívico, conforme a la Ley y al Reglamento de Justicia Cívica",
+      "Cada persona conductora decide su propia sanción",
+      "El Bando fija una multa igual para todas las infracciones"
+    ],
     "correctIndex": 0,
-    "explanation": "Verifica con anticipación que cuentas con la documentación vigente que te corresponde."
+    "explanation": "El artículo 218 asigna esa calificación a la persona titular del Juzgado Cívico y remite a la legislación y reglamento aplicables."
   },
   {
     "id": "q7",
-    "faultId": "grave-cinturon",
-    "question": "¿Quién debe usar el cinturón de seguridad?",
-    "options": ["Solo quien conduce", "Todas las personas ocupantes", "Solo quienes viajan en el asiento delantero"],
-    "correctIndex": 1,
-    "explanation": "Todas las personas ocupantes deben usar el cinturón durante el trayecto."
+    "faultId": "movilidad-senales-velocidad",
+    "question": "¿Qué debe guiarte para elegir la velocidad al conducir en Villa Victoria?",
+    "options": [
+      "El límite indicado por los señalamientos y las condiciones de la vía",
+      "La velocidad más alta que alcance el vehículo",
+      "La velocidad del vehículo que viene detrás"
+    ],
+    "correctIndex": 0,
+    "explanation": "El artículo 193, fracción I, manda respetar los límites de velocidad establecidos; el Bando no da un único límite numérico para todas las vías."
   },
   {
     "id": "q8",
-    "faultId": "gravísima-alcohol",
-    "question": "¿Por qué conducir bajo los efectos del alcohol es peligroso?",
-    "options": ["Porque afecta la coordinación y el tiempo de reacción", "Porque reduce únicamente la comodidad", "Porque solo afecta en trayectos largos"],
-    "correctIndex": 0,
-    "explanation": "El alcohol afecta habilidades esenciales y pone en riesgo a todas las personas en la vía."
+    "faultId": "seguridad-telefono",
+    "question": "¿El Bando Municipal 2026 presenta sus categorías educativas como grados oficiales de falta leve, grave o gravísima?",
+    "options": [
+      "Sí, fija esos tres grados para las infracciones de movilidad",
+      "No; remite la calificación a la Ley y al Reglamento de Justicia Cívica",
+      "Sí, y también da un monto único de multa para cada grado"
+    ],
+    "correctIndex": 1,
+    "explanation": "Los artículos 217 y 218 remiten a la Ley y al Reglamento de Justicia Cívica; estos artículos no fijan esas categorías generales ni montos de multa."
   }
 ]

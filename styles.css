@@ -87,17 +87,21 @@ h1, h2, h3, p { margin-top: 0; }
 .fault-card-top { display: flex; justify-content: space-between; align-items: center; }
 .fault-icon { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: #f9ebe3; color: #b96140; font-size: 13px; font-weight: 700; }
 .category-tag { border-radius: 20px; padding: 5px 8px; background: #f8eee7; color: #a85d40; font-size: 8px; }
-.category-serious, .fault-icon.category-serious { color: #9b7438; background: #f5efde; }
-.category-critical, .fault-icon.category-critical { color: #a34d44; background: #f7e6e2; }
-.category-admin, .fault-icon.category-admin { color: #617290; background: #e8edf5; }
+.category-mobility, .fault-icon.category-mobility { color: #617290; background: #e8edf5; }
+.category-safety, .fault-icon.category-safety { color: #477452; background: #e7f0e5; }
+.category-alcohol, .fault-icon.category-alcohol { color: #a34d44; background: #f7e6e2; }
+.category-civic, .fault-icon.category-civic { color: #76658f; background: #eee8f5; }
 .fault-card h3 { margin: 14px 0 7px; font: 700 13px "Manrope", sans-serif; }
 .fault-card > p { min-height: 44px; margin-bottom: 13px; color: #7c837a; font-size: 9px; line-height: 1.65; }
 .fault-card > p.sanction-note { min-height: 0; margin: -5px 0 10px; color: #946547; font-size: 8px; }
+.legal-reference { display: inline-block; margin-bottom: 11px; color: #4d6a54; font-size: 8px; font-weight: 700; line-height: 1.5; text-decoration: underline; text-underline-offset: 2px; }
+.legal-reference span { color: var(--orange); }
 .prevention { display: flex; gap: 8px; padding-top: 10px; border-top: 1px solid #eef0eb; color: #556957; font-size: 8px; line-height: 1.5; }
 .prevention span:first-child { color: var(--orange); font-size: 12px; }
 .source-note { display: flex; gap: 9px; margin-top: 18px; color: #858b83; font-size: 9px; line-height: 1.65; }
 .source-note > span { color: var(--orange); font-size: 14px; }
 .source-note p { margin: 0; }
+.source-note a { color: #4d6a54; font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
 .loading-message { color: #727a72; font-size: 12px; padding: 15px 0; }
 .quiz-section { position: relative; overflow: hidden; background: var(--green-dark); padding: 75px 0; color: white; }
 .quiz-decoration { position: absolute; top: -45px; right: 3%; color: rgba(255,255,255,.05); font-size: 250px; }
