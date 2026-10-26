@@ -1,0 +1,66 @@
+[
+  {
+    "id": "q1",
+    "faultId": "grave-cinturon",
+    "question": "¿Qué debes hacer antes de iniciar un viaje?",
+    "options": ["Colocarte el cinturón y revisar que las personas pasajeras también lo usen", "Usar el cinturón solo en carretera", "Confiar en que las bolsas de aire son suficientes"],
+    "correctIndex": 0,
+    "explanation": "El cinturón debe usarse en todos los trayectos y por todas las personas ocupantes."
+  },
+  {
+    "id": "q2",
+    "faultId": "grave-celular",
+    "question": "Necesitas responder un mensaje mientras conduces. ¿Cuál es la opción segura?",
+    "options": ["Leerlo rápidamente en un semáforo", "Detenerte en un lugar seguro antes de usar el teléfono", "Pedir a quien conduce detrás que te avise si cambia el semáforo"],
+    "correctIndex": 1,
+    "explanation": "La opción segura es estacionarte en un lugar permitido antes de manipular el teléfono."
+  },
+  {
+    "id": "q3",
+    "faultId": "gravísima-alcohol",
+    "question": "¿Qué debes hacer si consumiste bebidas alcohólicas?",
+    "options": ["Conducir despacio", "Esperar unos minutos y conducir", "No conducir y elegir una alternativa segura"],
+    "correctIndex": 2,
+    "explanation": "El alcohol afecta habilidades necesarias para conducir; elige otra forma de llegar."
+  },
+  {
+    "id": "q4",
+    "faultId": "leve-velocidad",
+    "question": "¿Cómo debes elegir la velocidad al conducir?",
+    "options": ["Respetar los señalamientos y adaptar la velocidad a las condiciones", "Seguir siempre la velocidad del vehículo de adelante", "Acelerar si el camino parece despejado"],
+    "correctIndex": 0,
+    "explanation": "Respeta el límite señalado y considera el tránsito, el clima y el estado del camino."
+  },
+  {
+    "id": "q5",
+    "faultId": "leve-estacionamiento",
+    "question": "¿Dónde es adecuado estacionar?",
+    "options": ["En una rampa si será solo un momento", "En un espacio permitido, sin bloquear accesos ni cruces", "Sobre la banqueta cuando no hay tráfico"],
+    "correctIndex": 1,
+    "explanation": "Estacionarse en espacios permitidos protege el paso de peatones y otros vehículos."
+  },
+  {
+    "id": "q6",
+    "faultId": "administrativa-documentos",
+    "question": "¿Qué hábito ayuda a evitar problemas por documentación?",
+    "options": ["Revisar antes de salir que llevas documentos vigentes y requeridos", "Llevar una foto borrosa de cualquier documento", "Esperar a que una autoridad los solicite para revisarlos"],
+    "correctIndex": 0,
+    "explanation": "Verifica con anticipación que cuentas con la documentación vigente que te corresponde."
+  },
+  {
+    "id": "q7",
+    "faultId": "grave-cinturon",
+    "question": "¿Quién debe usar el cinturón de seguridad?",
+    "options": ["Solo quien conduce", "Todas las personas ocupantes", "Solo quienes viajan en el asiento delantero"],
+    "correctIndex": 1,
+    "explanation": "Todas las personas ocupantes deben usar el cinturón durante el trayecto."
+  },
+  {
+    "id": "q8",
+    "faultId": "gravísima-alcohol",
+    "question": "¿Por qué conducir bajo los efectos del alcohol es peligroso?",
+    "options": ["Porque afecta la coordinación y el tiempo de reacción", "Porque reduce únicamente la comodidad", "Porque solo afecta en trayectos largos"],
+    "correctIndex": 0,
+    "explanation": "El alcohol afecta habilidades esenciales y pone en riesgo a todas las personas en la vía."
+  }
+]

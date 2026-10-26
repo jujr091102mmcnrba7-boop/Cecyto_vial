@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f6f2">
+    <meta name="description" content="Aprende a conducir con responsabilidad y conoce las faltas viales.">
+    <title>CECyTO Vial | Aprende a llegar seguro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#inicio" aria-label="CECyTO Vial, inicio">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span>CECyTO<span class="brand-light">Vial</span></span>
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a class="nav-link active" href="#inicio">Inicio</a>
+        <a class="nav-link" href="#reglamento">Reglamento</a>
+        <a class="nav-link" href="#cuestionario">Cuestionario</a>
+      </nav>
+      <a class="header-cta" href="#cuestionario">Comenzar <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main id="inicio">
+      <section class="hero section-wrap">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-dot"></span> VILLA VICTORIA · ESTADO DE MÉXICO</div>
+          <h1>En el camino,<br>cada decisión<br><span>cuenta.</span></h1>
+          <p class="hero-description">Conocer las reglas también es una forma de cuidar. Aprende, reflexiona y hagamos de cada trayecto uno más seguro.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#cuestionario">Poner a prueba lo que sé <span aria-hidden="true">→</span></a>
+            <a class="text-link" href="#reglamento">Explorar el reglamento <span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="hero-note"><span class="note-icon" aria-hidden="true">✳</span><span>Un espacio de aprendizaje para conductores responsables.</span></div>
+        </div>
+        <div class="hero-art" role="img" aria-label="Ilustración de un camino entre montañas">
+          <div class="art-sun"></div>
+          <div class="art-label"><span class="art-label-icon">↗</span><span><strong>La seguridad</strong><small>empieza contigo</small></span></div>
+          <div class="art-road"></div>
+          <div class="art-road-line"></div>
+          <div class="art-hill hill-back"></div>
+          <div class="art-hill hill-front"></div>
+          <div class="art-tree tree-one">♠</div>
+          <div class="art-tree tree-two">♠</div>
+          <div class="art-car"><span class="car-window"></span><span class="car-wheel wheel-one"></span><span class="car-wheel wheel-two"></span></div>
+          <div class="art-badge"><span>↘</span><strong>Conduce<br>con conciencia</strong></div>
+        </div>
+      </section>
+
+      <section class="stats-strip section-wrap" aria-label="Sobre el aprendizaje vial">
+        <div class="stat-intro"><span class="stat-symbol">✳</span><span>Aprender hoy<br>protege mañana.</span></div>
+        <div class="stat-item"><strong>04</strong><span>categorías para<br>aprender y prevenir</span></div>
+        <div class="stat-item"><strong>08</strong><span>preguntas para<br>reflexionar</span></div>
+        <div class="stat-item stat-last"><strong>01</strong><span>decisión puede<br>hacer la diferencia</span></div>
+        <span class="stats-caption">EDUCACIÓN VIAL · VILLA VICTORIA</span>
+      </section>
+
+      <section class="learning-section" id="reglamento">
+        <div class="section-wrap">
+          <div class="section-heading">
+            <div><div class="eyebrow"><span class="eyebrow-dot"></span> CONOCE Y PREVIENE</div><h2>Reglas claras,<br><span>caminos seguros.</span></h2></div>
+            <p>Conocer las faltas más comunes puede ayudarte a tomar mejores decisiones al volante. Explora cada categoría y descubre cómo prevenirlas.</p>
+          </div>
+          <div class="filter-row" role="group" aria-label="Filtrar faltas por categoría">
+            <button class="filter-chip selected" type="button" data-category="Todas" aria-pressed="true">Todas las faltas <span id="all-count">06</span></button>
+            <button class="filter-chip" type="button" data-category="Leve" aria-pressed="false">Leves</button>
+            <button class="filter-chip" type="button" data-category="Grave" aria-pressed="false">Graves</button>
+            <button class="filter-chip" type="button" data-category="Gravísima" aria-pressed="false">Gravísimas</button>
+            <button class="filter-chip" type="button" data-category="Administrativa" aria-pressed="false">Administrativas</button>
+          </div>
+          <div class="fault-grid" id="fault-grid" aria-live="polite"><p class="loading-message">Cargando el reglamento…</p></div>
+          <div class="source-note"><span aria-hidden="true">ⓘ</span><p>Contenido educativo de demostración. Las clasificaciones, obligaciones y sanciones deben verificarse con el reglamento vigente del municipio antes de su publicación oficial.</p></div>
+        </div>
+      </section>
+
+      <section class="quiz-section" id="cuestionario">
+        <div class="quiz-decoration" aria-hidden="true">✳</div>
+        <div class="section-wrap quiz-layout">
+          <div class="quiz-copy">
+            <div class="eyebrow eyebrow-light"><span class="eyebrow-dot"></span> APRENDER TAMBIÉN ES PRACTICAR</div>
+            <h2>¿Qué tan listo<br>estás para<br><span>el camino?</span></h2>
+            <p>Responde a tu ritmo. Cada respuesta te da una oportunidad para aprender algo nuevo.</p>
+            <div class="quiz-meta"><span><i></i> 8 preguntas</span><span><i></i> Retroalimentación inmediata</span></div>
+          </div>
+          <div class="quiz-card" id="quiz-card">
+            <div class="quiz-card-top"><span class="quiz-kicker">RETO DE CONOCIMIENTO</span><span class="quiz-count">A TU RITMO</span></div>
+            <div class="quiz-welcome">
+              <div class="quiz-icon" aria-hidden="true">↗</div>
+              <h3>Un trayecto más seguro empieza con lo que sabes.</h3>
+              <p>Contesta 8 preguntas sobre situaciones cotidianas al conducir.</p>
+              <button class="button button-primary quiz-start" id="start-quiz" type="button">Comenzar cuestionario <span aria-hidden="true">→</span></button>
+            </div>
+            <div class="quiz-active" id="quiz-active" hidden></div>
+            <div class="quiz-results" id="quiz-results" hidden></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing section-wrap">
+        <span class="closing-star" aria-hidden="true">✳</span>
+        <p>El mejor destino<br>es <span>llegar bien.</span></p>
+        <a href="#inicio" aria-label="Volver al inicio">↑</a>
+      </section>
+    </main>
+    <footer><div class="site-footer section-wrap"><a class="brand" href="#inicio"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>CECyTO<span class="brand-light">Vial</span></span></a><p>Un proyecto de educación vial para Villa Victoria.</p><span>HECHO PARA APRENDER, HECHO PARA CUIDARNOS.</span></div></footer>
+  </body>
+</html>
